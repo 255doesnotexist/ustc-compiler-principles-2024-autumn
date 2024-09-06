@@ -51,3 +51,40 @@ hello world!
 
 look, I find 2 words of 10 chars
 ```
+
+阅读 flex 自带的手册。
+
+```bash
+info flex
+```
+
+```output
+Next: Copyright,  Prev: (dir),  Up: (dir)
+
+flex
+****
+
+This manual describes 'flex', a tool for generating programs that
+perform pattern-matching on text.  The manual includes both tutorial a\
+nd
+reference sections.
+
+   This edition of 'The flex Manual' documents 'flex' version 2.6.4.  \
+It
+was last updated on 6 May 2017.
+
+   This manual was written by Vern Paxson, Will Estes and John Millawa\
+y.
+
+* Menu:
+
+* Copyright::                   
+* Reporting Bugs::              
+* Introduction::                
+* Simple Examples::             
+* Format::                      
+* Patterns::                 
+...
+```
+
+没看完，粗略看了一点。基本是 regex？
