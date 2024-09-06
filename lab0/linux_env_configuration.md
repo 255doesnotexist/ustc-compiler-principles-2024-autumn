@@ -106,3 +106,46 @@ ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab0$ lli Tes
 PB22110227
 0
 ```
+
+```bash
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab0$ git push
+
+枚举对象中: 6, 完成.
+对象计数中: 100% (6/6), 完成.
+使用 16 个线程进行压缩
+压缩对象中: 100% (5/5), 完成.
+写入对象中: 100% (6/6), 3.27 KiB | 3.27 MiB/s, 完成.
+总共 6（差异 0），复用 0（差异 0），包复用 0（来自  0 个包）
+To https://github.com/255doesnotexist/ustc-compiler-principles-2024-autumn.git
+ * [new branch]      main -> main
+```
+
+# Git 实验任务 (Skipped)
+
+根据上述操作，完成 readme.md 添加、上游仓库添加和冲突处理等操作。
+
+阅读扩展材料，回答以下问题，将答案添加到 answer.pdf。
+
+如何创建一个新的 git 分支？如何进行分支切换？如何删除一个分支？什么时候可以安全的删除一个分支？
+
+git branch, git checkout <branch_name>, git branch -d, 分支已经被合并或工作已经完成且不再需要
+
+如何撤销保存在暂存区的修改？如何撤销已经提交的修改？
+
+git reset HEAD <file>, git reset --soft HEAD-1 / git reset --hard HEAD-1 / git revert commit_hash
+
+如何从远程仓库抓取更新？
+
+git fetch & merge / git pull
+
+解释 git init 的作用？
+
+初始化一个 git repo
+
+解释 git fetch 和 git pull 的区别。
+
+仅拉取分支、拉取分支并合并
+
+将 LLVM 等软件环境配置与测试 中生成的 Test.ll 文件添加到仓库中，并上传到远程仓库中去。
+
+已完成
