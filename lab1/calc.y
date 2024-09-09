@@ -51,7 +51,15 @@ term
 {
     switch ($2) {
     case '*': $$ = $1 * $3; break;
-    case '/': $$ = $1 / $3; break; // 这里会出什么问题？
+    case '/': // 这里已加入除数检查
+        {
+            if ($3 == 0) {
+                yyerror("Division by zero error");
+            } else {
+                $$ = $1 / $3;
+            }
+            break;
+        }
     }
 }
 

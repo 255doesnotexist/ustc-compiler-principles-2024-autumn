@@ -502,8 +502,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    23,    23,    24,    27,    33,    37,    46,    50,    59,
-      63
+       0,    23,    23,    24,    27,    33,    37,    46,    50,    67,
+      71
 };
 #endif
 
@@ -1119,30 +1119,38 @@ yyreduce:
 {
     switch ((yyvsp[-1].op)) {
     case '*': (yyval.num) = (yyvsp[-2].num) * (yyvsp[0].num); break;
-    case '/': (yyval.num) = (yyvsp[-2].num) / (yyvsp[0].num); break; // 这里会出什么问题？
+    case '/': // 这里已加入除数检查
+        {
+            if ((yyvsp[0].num) == 0) {
+                yyerror("Division by zero error");
+            } else {
+                (yyval.num) = (yyvsp[-2].num) / (yyvsp[0].num);
+            }
+            break;
+        }
     }
-}
-#line 1126 "calc.tab.c"
-    break;
-
-  case 9: /* factor: LPAREN expr RPAREN  */
-#line 60 "calc.y"
-{
-    (yyval.num) = (yyvsp[-1].num);
 }
 #line 1134 "calc.tab.c"
     break;
 
-  case 10: /* factor: NUMBER  */
-#line 64 "calc.y"
+  case 9: /* factor: LPAREN expr RPAREN  */
+#line 68 "calc.y"
 {
-    (yyval.num) = (yyvsp[0].num);
+    (yyval.num) = (yyvsp[-1].num);
 }
 #line 1142 "calc.tab.c"
     break;
 
+  case 10: /* factor: NUMBER  */
+#line 72 "calc.y"
+{
+    (yyval.num) = (yyvsp[0].num);
+}
+#line 1150 "calc.tab.c"
+    break;
 
-#line 1146 "calc.tab.c"
+
+#line 1154 "calc.tab.c"
 
       default: break;
     }
@@ -1335,7 +1343,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 68 "calc.y"
+#line 76 "calc.y"
 
 
 void yyerror(const char *s)

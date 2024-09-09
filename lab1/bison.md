@@ -178,3 +178,22 @@ ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ ./calc
 
 一个简单的计算器程序。支持加法乘法左右括号。
 存在一个潜在问题。除数为 0 时会出现问题。
+
+完整的工作流程图：
+
+![](https://ustc-compiler-principles.github.io/2023/lab1/assets/image-20230913164805071-1694594895535-1-1694594931543-3.png)
+
+## 为什么 Bison 可以处理左递归？
+
+Bison 是一个 LALR(1) 解析器生成器，使用 自底向上 的语法解析方法（shift-reduce 解析）。规避了可能的死循环问题。（自顶向下就可能遇到这种问题！）
+
+## 能否加入除数检查？
+
+可以。修改记录见 git commit log。
+
+```shell
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ ./calc 
+1/0
+Division by zero error
+ = 1.000000
+```
