@@ -67,3 +67,21 @@ test.c：
 ```c
 int main() {}
 ```
+
+## 评测
+
+```shell
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/src/tests/1-parser$ ./eval_lab1.sh easy yes
+[info] Analyzing expr.cminus
+[info] Analyzing FAIL_comment2.cminus
+error at line 1 column 1: syntax error
+[info] Analyzing FAIL_comment.cminus
+error at line 1 column 1: syntax error
+[info] Analyzing FAIL_function.cminus
+error at line 3 column 0: syntax error
+[info] Analyzing FAIL_id.cminus
+error at line 1 column 6: syntax error
+[info] Analyzing id.cminus
+[info] Comparing...
+[info] No difference! Congratulations!
+```
