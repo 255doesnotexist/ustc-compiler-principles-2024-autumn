@@ -72,3 +72,109 @@ syntax error
 ```
 
 空输入和未解析是 rule1。带 R 的触发灵梦 rule2。（唉二次元。）
+
+然后贴入 calc.y。
+
+```cpp
+/* calc.y */
+%{
+#include <stdio.h>
+    int yylex(void);
+    void yyerror(const char *s);
+%}
+
+%token RET
+%token <num> NUMBER
+%token <op> ADDOP MULOP LPAREN RPAREN
+%type <num> top line expr term factor
+
+%start top
+
+%union {
+    char   op;
+    double num;
+}
+
+%%
+
+top
+: top line {}
+| {}
+
+line
+: expr RET
+{
+    printf(" = %f\n", $1);
+}
+
+expr
+: term
+{
+    $$ = $1;
+}
+| expr ADDOP term
+{
+    switch ($2) {
+    case '+': $$ = $1 + $3; break;
+    case '-': $$ = $1 - $3; break;
+    }
+}
+
+term
+: factor
+{
+    $$ = $1;
+}
+| term MULOP factor
+{
+    switch ($2) {
+    case '*': $$ = $1 * $3; break;
+    case '/': $$ = $1 / $3; break; // 这里会出什么问题？
+    }
+}
+
+factor
+: LPAREN expr RPAREN
+{
+    $$ = $2;
+}
+| NUMBER
+{
+    $$ = $1;
+}
+
+%%
+
+void yyerror(const char *s)
+{
+    fprintf(stderr, "%s\n", s);
+}
+
+int main()
+{
+    yyparse();
+    return 0;
+}
+```
+
+编译执行。
+
+```shell
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ bison -d calc.y
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ flex calc.l
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ ls calc.tab.c calc.tab.h lex.yy.c
+calc.tab.c  calc.tab.h  lex.yy.c
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ gcc lex.yy.c calc.tab.c -o calc
+ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/lab1$ ./calc
+1+1
+ = 2.000000
+1+1*2
+ = 3.000000
+(1+1)*2
+ = 4.000000
+2*1+1
+ = 3.000000
+```
+
+一个简单的计算器程序。支持加法乘法左右括号。
+存在一个潜在问题。除数为 0 时会出现问题。

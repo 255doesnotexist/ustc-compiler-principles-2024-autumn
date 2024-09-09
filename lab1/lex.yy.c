@@ -354,8 +354,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
+#define YY_NUM_RULES 8
+#define YY_END_OF_BUFFER 9
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,27 +363,28 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[9] =
+static const flex_int16_t yy_accept[20] =
     {   0,
-        0,    0,    4,    2,    3,    1,    1,    0
+        0,    0,    9,    8,    6,    7,    7,    1,    2,    4,
+        3,    8,    5,    7,    5,    5,    5,    5,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
+        1,    1,    4,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    5,    1,    1,    1,    1,    1,    1,    1,    6,
+        7,    8,    9,    1,   10,   11,   12,   13,   13,   13,
+       13,   13,   13,   13,   13,   13,   13,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    1,    1,    3,    3,    3,    3,
 
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -400,29 +401,38 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[14] =
     {   0,
-        1,    1,    2
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[10] =
+static const flex_int16_t yy_base[20] =
     {   0,
-        0,    0,    5,    6,    6,    0,    0,    6,    2
+        0,    0,   21,   22,   22,   22,   17,   22,   22,   22,
+       22,    6,    3,   22,    5,    4,    0,    2,   22
     } ;
 
-static const flex_int16_t yy_def[10] =
+static const flex_int16_t yy_def[20] =
     {   0,
-        8,    1,    8,    8,    8,    9,    9,    0,    8
+       19,    1,   19,   19,   19,   19,   19,   19,   19,   19,
+       19,   19,   19,   19,   19,   19,   13,   19,    0
     } ;
 
-static const flex_int16_t yy_nxt[10] =
+static const flex_int16_t yy_nxt[36] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8
+        4,    5,    6,    7,    5,    8,    9,   10,   11,   11,
+       12,   10,   13,   16,   18,   17,   18,   15,   15,   14,
+       19,    3,   19,   19,   19,   19,   19,   19,   19,   19,
+       19,   19,   19,   19,   19
     } ;
 
-static const flex_int16_t yy_chk[10] =
+static const flex_int16_t yy_chk[36] =
     {   0,
-        1,    1,    1,    9,    3,    8,    8,    8,    8
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,   13,   18,   13,   16,   15,   12,    7,
+        3,   19,   19,   19,   19,   19,   19,   19,   19,   19,
+       19,   19,   19,   19,   19
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -439,22 +449,32 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "wc.l"
-/* %option noyywrap 功能较为复杂，同学们自行了解 */
-#line 4 "wc.l"
-/* Flex 源程序采样类 C 的语法和规则 */
-/* 以下是声明部分，`%{` 和 `%}` 之间的内容会被原样复制到生成的 C 文件头部
-    包括该条注释内容 */
-#include <string.h>
-int chars = 0;
-int words = 0;
-#line 451 "lex.yy.c"
-/* 以下是规则部分，在规则部分写注释不能顶格写 */
-/* 每条规则由正则表达式和动作组成 */
-/* 第一条规则匹配纯字母的字符串，并统计字母个数和字符串个数
-                       其中 yytext 为匹配到的 token */
-/* 第二条规则匹配其他字符或字符串并执行空动作 */
-#line 457 "lex.yy.c"
+#line 1 "calc.l"
+/* calc.l */
+#line 5 "calc.l"
+/* 引入 calc.y 定义的 token */
+/* calc.tab.h 文件由 Bison 生成 */
+/* 当我们在.y 文件中使用 %token 声明一个 token 时，这个 token 就会导出到 .h 中，
+   可以在 C 代码中直接使用，供 Flex 使用。就如 .l 文件中的\( { return LPAREN; }，
+   其中 LPAREN 定义来自 calc.tab.h，由对应的 .y 文件生成 */
+#include "calc.tab.h"
+#line 461 "lex.yy.c"
+/* 规则部分 yylval 同样来自 calc.tab.h 文件，其类型为 YYSTYPE，用于 token 的相关属性，比如 NUMBER 对应的实际数值 */
+/* 在这个例子中，YYSTYPE 定义如下
+
+typedef union YYSTYPE {
+  char op;
+  double num;
+} YYSTYPE;
+
+其同样由 .y 文件根据 %union 生成，在文件中我们的 %union 定义如下
+
+%union {
+    char   op;
+    double num;
+}
+*/
+#line 477 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -671,11 +691,9 @@ YY_DECL
 		}
 
 	{
-#line 17 "wc.l"
+#line 30 "calc.l"
 
-#line 19 "wc.l"
- /* 在规则部分，不要顶格写注释 */
-#line 678 "lex.yy.c"
+#line 696 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -702,13 +720,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 20 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 6 );
+		while ( yy_base[yy_current_state] != 22 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -734,20 +752,46 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 20 "wc.l"
-{ chars += strlen(yytext); words++; }
+#line 31 "calc.l"
+{ return LPAREN; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 21 "wc.l"
-{}
+#line 32 "calc.l"
+{ return RPAREN; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 22 "wc.l"
+#line 33 "calc.l"
+{ yylval.op = yytext[0]; return ADDOP; }
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 34 "calc.l"
+{ yylval.op = yytext[0]; return MULOP; }
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 35 "calc.l"
+{ yylval.num = atof(yytext); return NUMBER; }
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 36 "calc.l"
+{  }
+	YY_BREAK
+case 7:
+/* rule 7 can match eol */
+YY_RULE_SETUP
+#line 37 "calc.l"
+{ return RET; }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 38 "calc.l"
 ECHO;
 	YY_BREAK
-#line 750 "lex.yy.c"
+#line 794 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1044,7 +1088,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 20 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1072,11 +1116,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 20 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 19);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1752,15 +1796,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 22 "wc.l"
+#line 38 "calc.l"
 
-
-/* 以下为 C 代码部分 */
-int main()
-{
-    /* yylex() 是由 Flex 自行生成的，用于执行 */
-    yylex();
-    /* 对于 stdin 输入匹配结束，执行其他操作 */
-    printf("look, I find %d words of %d chars\n", words, chars);
-    return 0;
-}
