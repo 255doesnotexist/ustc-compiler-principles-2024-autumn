@@ -54,7 +54,6 @@ make
 ezra@doesnotexist:~/Documents/ustc-compiler-principles-2024-autumn/src/build$ ./lexer test.c 
 Token         Text      Line    Column (Start,End)
 280            int      0       (0,3)
-258                     0       (3,4)
 285           main      0       (4,8)
 272              (      0       (8,9)
 273              )      0       (9,10)
